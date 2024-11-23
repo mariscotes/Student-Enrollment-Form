@@ -1,0 +1,314 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Student Enrollment Form</title>
+    <style>
+        /* General styles */
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        h1, h3 {
+            text-align: center;
+        }
+
+        .container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 20px;
+            margin: 20px;
+        }
+
+        /* Flexbox for the form */
+        .form-container {
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+            width: 100%;
+            max-width: 600px;
+            padding: 20px;
+            border: 1px solid #ccc;
+            border-radius: 8px;
+            background-color: #f9f9f9;
+        }
+
+        .form-group {
+            display: flex;
+            flex-direction: column;
+            gap: 5px;
+        }
+
+        label {
+            font-weight: bold;
+        }
+
+        input, select, button {
+            padding: 10px;
+            font-size: 1rem;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+
+        button {
+            cursor: pointer;
+            background-color: #007BFF;
+            color: white;
+            border: none;
+            transition: background-color 0.3s;
+        }
+
+        button:hover {
+            background-color: #0056b3;
+        }
+
+        .checkbox-group, .radio-group {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+        }
+
+        /* Flexbox for the table */
+        .table-container {
+            display: flex;
+            justify-content: center;
+            width: 100%;
+        }
+
+        table {
+            width: 90%;
+            border-collapse: collapse;
+            margin-top: 20px;
+        }
+
+        th, td {
+            border: 1px solid black;
+            padding: 8px;
+            text-align: left;
+        }
+
+        th {
+            background-color: #f2f2f2;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <!-- Header Section -->
+        <h1>Student Enrollment Form</h1>
+        <h3>Instructions:</h3>
+        <ol>
+            <li>Fill in the form fields</li>
+            <li>Check your interests</li>
+            <li>Click "Enroll Now" to submit</li>
+        </ol>
+
+        <!-- Form Section -->
+        <form class="form-container" action="action_page.php" method="POST">
+            <!-- Full Name -->
+            <div class="form-group">
+                <label for="Fname">Full Name:</label>
+                <input type="text" id="Fname" name="Fname" placeholder="Enter your full name" required>
+            </div>
+
+            <!-- Email -->
+            <div class="form-group">
+                <label for="email">Email:</label>
+                <input type="email" id="email" name="email" placeholder="example@gmail.com" required>
+            </div>
+
+            <!-- Age -->
+            <div class="form-group">
+                <label for="age">Age:</label>
+                <input type="number" id="age" name="age" placeholder="Enter your age" value="1" required>
+            </div>
+
+            <!-- Sex -->
+            <div class="form-group">
+                <label>Sex:</label>
+                <div class="radio-group">
+                    <input type="radio" id="male" name="sex" value="male">
+                    <label for="male">Male</label>
+
+                    <input type="radio" id="female" name="sex" value="female">
+                    <label for="female">Female</label>
+
+                    <input type="radio" id="other" name="sex" value="other">
+                    <label for="other">Other</label>
+                </div>
+            </div>
+
+            <!-- Course Option -->
+            <div class="form-group">
+                <label for="course-option">Course Option:</label>
+                <select id="course-option" name="course-option">
+                    <option value="BSIT">BSIT</option>
+                    <option value="BSE">BSE</option>
+                    <option value="BSA">BSA</option>
+                    <option value="BSSW">BSSW</option>
+                    <option value="BSPA">BSPA</option>
+                    <option value="BSAIS">BSAIS</option>
+                    <option value="BSTVTEd">BSTVTEd</option>
+                    <option value="DHRS">DHRS</option>
+                </select>
+            </div>
+
+            <!-- Interests -->
+            <div class="form-group">
+                <label>Interests:</label>
+                <div class="checkbox-group">
+                    <input type="checkbox" id="programming" name="interest[]" value="Programming">
+                    <label for="programming">Programming</label>
+
+                    <input type="checkbox" id="web-design" name="interest[]" value="Web Design">
+                    <label for="web-design">Web Design</label>
+
+                    <input type="checkbox" id="data-science" name="interest[]" value="Data Science">
+                    <label for="data-science">Data Science</label>
+
+                    <input type="checkbox" id="web-development" name="interest[]" value="Web Development">
+                    <label for="web-development">Web Development</label>
+
+                    <input type="checkbox" id="graphic-design" name="interest[]" value="Graphic Design">
+                    <label for="graphic-design">Graphic Design</label>
+
+                    <input type="checkbox" id="animation" name="interest[]" value="Animation">
+                    <label for="animation">Animation</label>
+
+                    <input type="checkbox" id="laws" name="interest[]" value="Laws">
+                    <label for="laws">Laws</label>
+
+                    <input type="checkbox" id="politics" name="interest[]" value="Politics">
+                    <label for="politics">Politics</label>
+
+                    <input type="checkbox" id="rights" name="interest[]" value="Rights">
+                    <label for="rights">Rights</label>
+
+                    <input type="checkbox" id="cooking" name="interest[]" value="Cooking">
+                    <label for="cooking">Cooking</label>
+                </div>
+            </div>
+
+            <!-- Submit Button -->
+            <div class="form-group">
+                <button type="submit">Enroll Now</button>
+            </div>
+        </form>
+
+        <!-- Table Section -->
+        <div class="table-container">
+            <table>
+                <thead>
+                    <tr>
+                        <th>ID</th>
+                        <th>Name</th>
+                        <th>Email</th>
+                        <th>Age</th>
+                        <th>Sex</th>
+                        <th>Course</th>
+                        <th>Interest</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>0001</td>
+                        <td>Amarillo, Ralph</td>
+                        <td>ralphrich@gmail.com</td>
+                        <td>20</td>
+                        <td>Male</td>
+                        <td>BSIT</td>
+                        <td>Data Science</td>
+                    </tr>
+                    <tr>
+                        <td>0002</td>
+                        <td>Aviles, Emmanuel</td>
+                        <td>manuel@gmail.com</td>
+                        <td>20</td>
+                        <td>Male</td>
+                        <td>BSIT</td>
+                        <td>Programming</td>
+                    </tr>
+                    <tr>
+                        <td>0003</td>
+                        <td>Cablaida, Mery</td>
+                        <td>meryrose@gmail.com</td>
+                        <td>20</td>
+                        <td>Female</td>
+                        <td>BSIT</td>
+                        <td>Web Design</td>
+                    </tr>
+                    <tr>
+                        <td>0004</td>
+                        <td>Capuno, Marianne</td>
+                        <td>mariannemae@gmail.com</td>
+                        <td>20</td>
+                        <td>Female</td>
+                        <td>BSIT</td>
+                        <td>Programming</td>
+                    </tr>
+                    <tr>
+                        <td>0005</td>
+                        <td>Carabido, Carl</td>
+                        <td>kienny@gmail.com</td>
+                        <td>21</td>
+                        <td>Male</td>
+                        <td>BSIT</td>
+                        <td>Data Science</td>
+                    </tr>
+                    <tr>
+                        <td>0006</td>
+                        <td>Lim, Justin</td>
+                        <td>justin@gmail.com</td>
+                        <td>21</td>
+                        <td>Male</td>
+                        <td>BSE</td>
+                        <td>Law</td>
+                    </tr>
+                    <tr>
+                        <td>0007</td>
+                        <td>Mariscotes, Jercel</td>
+                        <td>jercel@gmail.com</td>
+                        <td>10</td>
+                        <td>Female</td>
+                        <td>BSIT</td>
+                        <td>Graphic Design</td>
+                    </tr>
+                    <tr>
+                        <td>0008</td>
+                        <td>Moralina, Andrei</td>
+                        <td>miguel@gmail.com</td>
+                        <td>20</td>
+                        <td>Male</td>
+                        <td>BSIT</td>
+                        <td>Animation</td>
+                    </tr>
+                    <tr>
+                        <td>0009</td>
+                        <td>Tan, Trisha</td>
+                        <td>trisha@gmail.com</td>
+                        <td>22</td>
+                        <td>Female</td>
+                        <td>BSPA</td>
+                        <td>Politics</td>
+                    </tr>
+                    <tr>
+                        <td>0010</td>
+                        <td>Tan, Wilmae</td>
+                        <td>wilmae@gmail.com</td>
+                        <td>20</td>
+                        <td>Female</td>
+                        <td>BSE</td>
+                        <td>Cooking</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</body>
+</html>
